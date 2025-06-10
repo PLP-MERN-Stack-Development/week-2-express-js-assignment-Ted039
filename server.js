@@ -19,14 +19,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// Custom Middleware for Authentication (Basic Example)
-app.use((req, res, next) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader || authHeader !== 'Bearer secret-token') {
-    return res.status(403).json({ message: 'Unauthorized access' });
-  }
-  next();
-});
+// // Custom Middleware for Authentication (Basic Example)
+// app.use((req, res, next) => {
+//   const authHeader = req.headers.authorization;
+//   if (!authHeader || authHeader !== 'Bearer secret-token') {
+//     return res.status(403).json({ message: 'Unauthorized access' });
+//   }
+//   next();
+// });
 
 // Sample in-memory products database
 let products = [
