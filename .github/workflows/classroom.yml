@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: npm install express body-parser uuid
+        run: npm install express body-parser uuid dotenv
 
       - name: Check if server.js exists
         run: test -f server.js
