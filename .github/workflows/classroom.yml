@@ -1,0 +1,28 @@
+name: Classroom Autograding
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  autograding:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install express body-parser uuid
+
+      - name: Check if server.js exists
+        run: test -f server.js
+
+      - name: Check if package.json exists
+        run: test -f package.json
+
+      - name: Start server and check response
+        run: timeout 5 node server.js & sleep 2 && curl -s http://localhost:3000/ | grep -q "Welcome"
